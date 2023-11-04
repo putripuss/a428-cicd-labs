@@ -11,11 +11,12 @@ pipeline {
                 sh 'python --version'
             }
         }
-        stage('Jalankan Script') { 
+        stage('Jalankan Script Python') {
             steps {
-                sh 'python python_script.py'
-
- 
+                script {
+                    // Jalankan skrip Python dengan argumen 3 dan 11
+                    sh 'python python_script.py 3 11'
+                }
             }
         }
         stage('Set Jawaban') {
@@ -25,6 +26,5 @@ pipeline {
                 }
             }
         }
-        // ... Tahap lainnya
     }
 }
