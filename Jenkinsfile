@@ -16,5 +16,13 @@ pipeline {
                 sh 'python python_script.py' 
             }
         }
+        stage('Set Jawaban') {
+            steps {
+                script {
+                    env.JAWABAN = input message: 'Masukkan jawaban:', parameters: [string(defaultValue: '', description: 'Jawaban')]
+                }
+            }
+        }
+        // ... Tahap lainnya
     }
 }
