@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('cek versi python') {
             steps {
-                sh 'python3 --version'
+                sh 'python --version'
             }
         }
         stage('Jalankan Script') { 
