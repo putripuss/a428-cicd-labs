@@ -1,19 +1,19 @@
 pipeline {
     agent {
         docker {
-            image 'node:16-buster-slim'
+            image 'python:3.9-bullseye'
             args '-p 3000:3000'
         }
     }
     stages {
-        stage('Build') {
+        stage('cek versi python') {
             steps {
-                sh 'npm install'
+                sh 'python3 --version'
             }
         }
-        stage('Test') { 
+        stage('Jalankan Script') { 
             steps {
-                sh './jenkins/scripts/test.sh' 
+                echo 'ini menjalankan Script' 
             }
         }
     }
