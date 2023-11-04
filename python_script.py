@@ -1,4 +1,6 @@
 import sys
+bilangan1 = int(sys.argv[1])
+bilangan2 = int(sys.argv[2])
 
 if len(sys.argv) < 3:
     print("Dua angka diperlukan sebagai argumen")
