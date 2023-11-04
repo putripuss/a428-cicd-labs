@@ -1,26 +1,30 @@
-import sys
-bilangan1 = int(sys.argv[1])
-bilangan2 = int(sys.argv[2])
-
-if len(sys.argv) < 3:
-    print("Dua angka diperlukan sebagai argumen")
-    sys.exit(1)
-
-game = True
-skor = 0
-
-while game == True:
-    bilangan1 = int(sys.argv[1])
-    bilangan2 = int(sys.argv[2])
-    print(f'\nBerapakah hasil perkalian berikut ini')
-    jawab = input(str(bilangan1) + " x " + str(bilangan2) + " = ")
-    jawaban_benar = bilangan1 * bilangan2
-    if jawab == str(jawaban_benar):
-        skor += 10
-        print(f'Jawaban Anda Benar, Skor Anda = {skor}')
-    else:
-        print(f'Jawaban anda salah, jawaban seharusnya adalah {jawaban_benar}')
-    konfirmasi = input('\nApakah ingin melanjutkan game (Y/T)?')
-    if konfirmasi == 'T':
-        break
-print('Akhiri Game\n')
+pipeline {
+    agent {
+        docker {
+            image 'python:3.9-bullseye'
+            args '-p 3000:3000'
+        }
+    }
+    stages {
+        stage('cek versi python') {
+            steps {
+                sh 'python --version'
+            }
+        }
+        stage('Jalankan Script Python') {
+            steps {
+                script {
+                    // Jalankan skrip Python dengan argumen 3 dan 11
+                    sh 'python python_script.py 3 11 < echo "jawaban"'
+                }
+            }
+        }
+        stage('Set Jawaban') {
+            steps {
+                script {
+                    env.JAWABAN = 'jawaban'
+                }
+            }
+        }
+    }
+}
