@@ -1,5 +1,5 @@
 import random
-
+import os
 
 game = True
 skor = 0
@@ -8,7 +8,7 @@ while game == True:
     bilangan1 = random.randrange(1,20)
     bilangan2 = random.randrange(1,20)
     print(f'\nBerapakah hasil perkalian berikut ini')
-    jawab = input(str(bilangan1) + " x " + str(bilangan2) + " = ")
+    jawab = os.getenv('JAWABAN')  # Mengambil nilai dari variabel lingkungan JAWABAN
     jawaban_benar = bilangan1*bilangan2
     if jawab == str(jawaban_benar):
         skor += 10
