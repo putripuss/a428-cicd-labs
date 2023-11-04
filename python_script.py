@@ -1,14 +1,13 @@
-import random
-import os
+import sys
 
 game = True
 skor = 0
 
 while game == True:
-    bilangan1 = random.randrange(1,20)
-    bilangan2 = random.randrange(1,20)
+    bilangan1 = int(sys.argv[1])  # Mengambil bilangan pertama dari argumen
+    bilangan2 = int(sys.argv[2])  # Mengambil bilangan kedua dari argumen
     print(f'\nBerapakah hasil perkalian berikut ini')
-    jawab = os.getenv('JAWABAN')  # Mengambil nilai dari variabel lingkungan JAWABAN
+    jawab = input(str(bilangan1) + " x " + str(bilangan2) + " = ")
     jawaban_benar = bilangan1*bilangan2
     if jawab == str(jawaban_benar):
         skor += 10
