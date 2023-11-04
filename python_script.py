@@ -1,5 +1,9 @@
 import sys
 
+if len(sys.argv) < 3:
+    print("Dua angka diperlukan sebagai argumen")
+    sys.exit(1)
+
 game = True
 skor = 0
 
@@ -8,7 +12,7 @@ while game == True:
     bilangan2 = int(sys.argv[2])  # Mengambil bilangan kedua dari argumen
     print(f'\nBerapakah hasil perkalian berikut ini')
     jawab = input(str(bilangan1) + " x " + str(bilangan2) + " = ")
-    jawaban_benar = bilangan1*bilangan2
+    jawaban_benar = bilangan1 * bilangan2
     if jawab == str(jawaban_benar):
         skor += 10
         print(f'Jawaban Anda Benar, Skor Anda = {skor}')
