@@ -8,8 +8,8 @@ game = True
 skor = 0
 
 while game == True:
-    bilangan1 = int(sys.argv[1])  # Mengambil bilangan pertama dari argumen
-    bilangan2 = int(sys.argv[2])  # Mengambil bilangan kedua dari argumen
+    bilangan1 = int(sys.argv[1])
+    bilangan2 = int(sys.argv[2])
     print(f'\nBerapakah hasil perkalian berikut ini')
     jawab = input(str(bilangan1) + " x " + str(bilangan2) + " = ")
     jawaban_benar = bilangan1 * bilangan2
