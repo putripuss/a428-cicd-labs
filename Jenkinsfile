@@ -6,14 +6,14 @@ pipeline {
         }
     }
     stages {
-        stage('Cek versi python') {
+        stage('Build') {
             steps {
                 sh 'python --version'
             }
         }
-        stage('Jalankan Script') { 
+        stage('Test') { 
             steps {
-                sh 'python dihibrida.py' 
+                sh './jenkins/scripts/test.sh' 
             }
         }
     }
