@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Jalankan Script') { 
             steps {
-                sh 'python_script.py' 
+                sh 'python python_script.py' 
             }
         }
     }
