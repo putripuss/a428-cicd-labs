@@ -1,25 +1,19 @@
 pipeline {
     agent {
         docker {
-            image 'node:18.17.1' // Menggunakan gambar Node.js versi 18
+            image 'node:16-buster-slim'
             args '-p 3000:3000'
         }
     }
     stages {
         stage('Build') {
             steps {
-                sh 'node --version' // Menampilkan versi Node.js
-                sh 'npm install' // Menginstal dependensi proyek
+                sh 'npm install'
             }
         }
         stage('Test') { 
             steps {
-                sh 'npm test' // Menjalankan skrip pengujian
-            }
-        }
-        stage('Hybridize') {
-            steps {
-                sh 'node hibridize.js' // Menjalankan skrip hibridize
+                sh './jenkins/scripts/test.sh' 
             }
         }
     }
