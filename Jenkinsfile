@@ -14,7 +14,6 @@ pipeline {
         stage('Test') { 
             steps {
                 sh './jenkins/scripts/test.sh'
-                sh 'node ./jenkins/scripts/dihibrida.js' 
             }
         }
     }
