@@ -28,7 +28,7 @@ pipeline {
                 input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)'
                 sh 'sleep 1m'
                 sh 'chmod +x ./jenkins/scripts/deliver.sh'
-                sh './jenkins/scripts/kill.sh'
+                sh './jenkins/scripts/deliver.sh'
             }
         }
     }
