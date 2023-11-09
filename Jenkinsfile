@@ -24,7 +24,7 @@ pipeline {
         } 
         stage('Deploy') {
             steps {
-                sh './jenkins/scripts/test.sh'
+                sh './jenkins/scripts/deliver.sh'
                 input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)'
                 sh 'sleep 1m'
                 sh 'chmod +x ./jenkins/scripts/kill.sh'
